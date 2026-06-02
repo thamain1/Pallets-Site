@@ -1,0 +1,80 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE } from "../data/site";
+
+const title = "Contact Us | Pallets Pallets Pallets — Atlanta";
+const description =
+  "Call, email, or stop by our Atlanta yard. Quotes and pickups same business day. Hours Mon-Fri 7-5, Sat 8-12.";
+---
+
+<BaseLayout title={title} description={description} path="/contact">
+  <section class="bg-pallet-cream py-16 sm:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <p class="text-sm font-semibold uppercase tracking-wider text-pallet-wood mb-3">Contact</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-pallet-wood-dark mb-4">
+        Call, email, or stop by the yard.
+      </h1>
+      <p class="text-lg text-stone-700">
+        Quotes and pickup scheduling same business day. The fastest way to reach us is the phone.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 grid gap-8 sm:grid-cols-2">
+      <div class="border border-pallet-cream-dark rounded-lg p-6 bg-white">
+        <h2 class="text-lg font-semibold text-pallet-wood-dark mb-3">Phone</h2>
+        <a href={`tel:${SITE.phone}`} class="text-2xl font-bold text-pallet-wood-dark hover:underline">
+          {SITE.phoneDisplay}
+        </a>
+        <p class="text-sm text-stone-600 mt-3">Best for quotes, same-day pickups, and standing accounts.</p>
+      </div>
+
+      <div class="border border-pallet-cream-dark rounded-lg p-6 bg-white">
+        <h2 class="text-lg font-semibold text-pallet-wood-dark mb-3">Email</h2>
+        <a href={`mailto:${SITE.email}`} class="text-lg font-bold text-pallet-wood-dark hover:underline break-words">
+          {SITE.email}
+        </a>
+        <p class="text-sm text-stone-600 mt-3">Best for sending photos of what you have, attached documents, or specs.</p>
+      </div>
+
+      <div class="border border-pallet-cream-dark rounded-lg p-6 bg-white sm:col-span-2">
+        <h2 class="text-lg font-semibold text-pallet-wood-dark mb-3">Yard &amp; office</h2>
+        <address class="not-italic text-stone-700 leading-relaxed">
+          <strong>{SITE.legalName}</strong><br />
+          {SITE.address.street}<br />
+          {SITE.address.locality}, {SITE.address.region} {SITE.address.postalCode}
+        </address>
+        <div class="mt-4 text-sm text-stone-600 space-y-1">
+          <p><strong class="text-pallet-wood-dark">Hours:</strong></p>
+          <p>{SITE.hours.weekdays}</p>
+          <p>{SITE.hours.weekend}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 mt-12">
+      <div class="bg-pallet-cream rounded-lg p-6 border border-pallet-cream-dark">
+        <h2 class="text-lg font-semibold text-pallet-wood-dark mb-3">When you call or email, tell us:</h2>
+        <ul class="space-y-2 text-stone-700">
+          <li class="flex gap-3">
+            <span class="text-pallet-wood mt-1.5" aria-hidden="true">▪</span>
+            <span>Your address (or a rough idea of where you are)</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-pallet-wood mt-1.5" aria-hidden="true">▪</span>
+            <span>What you have (pickup) or what you need (supply) — rough count is fine</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-pallet-wood mt-1.5" aria-hidden="true">▪</span>
+            <span>When you need it — today, this week, recurring</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-pallet-wood mt-1.5" aria-hidden="true">▪</span>
+            <span>Dock access notes (lift gate? back-in only? gated yard?)</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

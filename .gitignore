@@ -8,12 +8,13 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Node / build artifacts (placeholders for when the site itself lands)
+# Node / build artifacts
 node_modules/
 dist/
 build/
 .next/
 .cache/
+.astro/
 .env
 .env.*
 !.env.example

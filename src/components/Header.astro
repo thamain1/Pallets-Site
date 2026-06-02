@@ -1,0 +1,54 @@
+---
+import { NAV_LINKS, SITE } from "../data/site";
+
+const currentPath = Astro.url.pathname;
+const isActive = (href: string) => {
+  if (href === "/") return currentPath === "/" || currentPath === "";
+  return currentPath.startsWith(href);
+};
+---
+
+<header class="bg-pallet-cream border-b border-pallet-cream-dark sticky top-0 z-40">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
+    <a href="/" class="flex items-center gap-2 group" aria-label="Pallets Pallets Pallets home">
+      <span class="inline-flex items-center justify-center w-9 h-9 rounded-md bg-pallet-wood text-pallet-cream font-bold text-sm shadow-sm group-hover:bg-pallet-wood-dark transition-colors">
+        PPP
+      </span>
+      <span class="font-semibold text-pallet-wood-dark hidden sm:inline">
+        {SITE.name}
+      </span>
+    </a>
+
+    <nav aria-label="Primary">
+      <ul class="flex items-center gap-1 sm:gap-2 text-sm">
+        {NAV_LINKS.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class:list={[
+                "px-2 sm:px-3 py-2 rounded-md transition-colors",
+                isActive(link.href)
+                  ? "text-pallet-wood-dark font-semibold bg-pallet-cream-dark"
+                  : "text-stone-700 hover:text-pallet-wood-dark hover:bg-pallet-cream-dark",
+              ]}
+              aria-current={isActive(link.href) ? "page" : undefined}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <a
+      href={`tel:${SITE.phone}`}
+      class="hidden md:inline-flex items-center gap-2 bg-pallet-wood text-pallet-cream px-4 py-2 rounded-md font-semibold text-sm hover:bg-pallet-wood-dark transition-colors"
+      aria-label={`Call ${SITE.name} at ${SITE.phoneDisplay}`}
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+      </svg>
+      {SITE.phoneDisplay}
+    </a>
+  </div>
+</header>

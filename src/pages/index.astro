@@ -1,0 +1,144 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE } from "../data/site";
+
+const title = "Pallet Supplier & Recycling | Pallets Pallets Pallets";
+const description =
+  "Atlanta-area pallet supplier and recycler. New, recycled, and custom wooden pallets — Grade A and Grade B. Pickup and reclamation across the metro region.";
+---
+
+<BaseLayout title={title} description={description} path="/">
+  <section class="bg-pallet-cream">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24 grid gap-12 lg:grid-cols-2 items-center">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-wider text-pallet-wood mb-3">
+          Pallets, Pallets, Pallets, LLC — Atlanta, GA
+        </p>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-pallet-wood-dark leading-tight tracking-tight">
+          Wood pallets, recycled and supplied across metro Atlanta.
+        </h1>
+        <p class="mt-6 text-lg text-stone-700 leading-relaxed max-w-xl">
+          New and reclaimed pallets in standard and custom sizes. Same-week pickup of broken or surplus pallets across a {SITE.serviceArea.radiusMiles}-mile service radius from Atlanta. Grade A and Grade B inventory in stock.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a
+            href={`tel:${SITE.phone}`}
+            class="inline-flex items-center gap-2 bg-pallet-wood text-pallet-cream px-6 py-3 rounded-md font-semibold hover:bg-pallet-wood-dark transition-colors"
+          >
+            Call {SITE.phoneDisplay}
+          </a>
+          <a
+            href="/contact"
+            class="inline-flex items-center gap-2 bg-white border-2 border-pallet-wood text-pallet-wood-dark px-6 py-3 rounded-md font-semibold hover:bg-pallet-cream-dark transition-colors"
+          >
+            Get a quote
+          </a>
+        </div>
+      </div>
+
+      <div class="relative">
+        <div class="aspect-[4/3] rounded-xl bg-pallet-wood/10 border-2 border-pallet-wood/20 flex items-center justify-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 200 150"
+            class="w-3/4 h-3/4 text-pallet-wood"
+            role="img"
+            aria-label="Illustration of a stack of wooden pallets"
+          >
+            <g fill="currentColor" opacity="0.85">
+              <rect x="20" y="20" width="160" height="14" rx="2"/>
+              <rect x="24" y="20" width="6" height="14" fill="#4a2d18"/>
+              <rect x="97" y="20" width="6" height="14" fill="#4a2d18"/>
+              <rect x="170" y="20" width="6" height="14" fill="#4a2d18"/>
+              <rect x="20" y="48" width="160" height="14" rx="2"/>
+              <rect x="24" y="48" width="6" height="14" fill="#4a2d18"/>
+              <rect x="97" y="48" width="6" height="14" fill="#4a2d18"/>
+              <rect x="170" y="48" width="6" height="14" fill="#4a2d18"/>
+              <rect x="20" y="76" width="160" height="14" rx="2"/>
+              <rect x="24" y="76" width="6" height="14" fill="#4a2d18"/>
+              <rect x="97" y="76" width="6" height="14" fill="#4a2d18"/>
+              <rect x="170" y="76" width="6" height="14" fill="#4a2d18"/>
+              <rect x="20" y="104" width="160" height="14" rx="2"/>
+              <rect x="24" y="104" width="6" height="14" fill="#4a2d18"/>
+              <rect x="97" y="104" width="6" height="14" fill="#4a2d18"/>
+              <rect x="170" y="104" width="6" height="14" fill="#4a2d18"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 sm:py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-bold text-pallet-wood-dark mb-3">What we do</h2>
+      <p class="text-stone-600 max-w-2xl mb-12">
+        Pallets are dirty, heavy, and a real operations headache when they pile up or run short. We handle both sides: keeping your dock stocked and hauling away what you don't need.
+      </p>
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <article class="border border-pallet-cream-dark rounded-lg p-6 hover:shadow-md transition-shadow bg-white">
+          <h3 class="text-lg font-semibold text-pallet-wood-dark mb-2">Pallet supply</h3>
+          <p class="text-sm text-stone-600">New and remanufactured pallets in 48×40 GMA standard plus other common footprints. Volume pricing on regular orders.</p>
+        </article>
+
+        <article class="border border-pallet-cream-dark rounded-lg p-6 hover:shadow-md transition-shadow bg-white">
+          <h3 class="text-lg font-semibold text-pallet-wood-dark mb-2">Pickup &amp; recycling</h3>
+          <p class="text-sm text-stone-600">Scheduled or on-call pickup of used, broken, or surplus pallets. We sort, repair, and put them back into circulation.</p>
+        </article>
+
+        <article class="border border-pallet-cream-dark rounded-lg p-6 hover:shadow-md transition-shadow bg-white">
+          <h3 class="text-lg font-semibold text-pallet-wood-dark mb-2">Custom sizes</h3>
+          <p class="text-sm text-stone-600">Built-to-spec pallets for awkward loads — extra-wide, heavy-duty, or shorter for tight trailer fits. Short-run orders welcome.</p>
+        </article>
+
+        <article class="border border-pallet-cream-dark rounded-lg p-6 hover:shadow-md transition-shadow bg-white">
+          <h3 class="text-lg font-semibold text-pallet-wood-dark mb-2">Grade A &amp; B inventory</h3>
+          <p class="text-sm text-stone-600">Grade A for export-ready or food-grade applications; Grade B for general warehousing. Both in stock most weeks.</p>
+        </article>
+      </div>
+
+      <div class="mt-10">
+        <a href="/services" class="text-pallet-wood-dark font-semibold hover:underline">
+          See full service details →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 sm:py-20 bg-pallet-cream">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl font-bold text-pallet-wood-dark mb-4">Serving the Atlanta metro and a 3-hour drive radius.</h2>
+      <p class="text-stone-700 leading-relaxed mb-8">
+        From inside the perimeter to Macon, Columbus, Athens, Gainesville, Rome, and up into Chattanooga — if you're within a few hours of Atlanta, we likely already run a route near you.
+      </p>
+      <a
+        href="/service-area"
+        class="inline-flex items-center gap-2 bg-pallet-wood text-pallet-cream px-6 py-3 rounded-md font-semibold hover:bg-pallet-wood-dark transition-colors"
+      >
+        See full service area
+      </a>
+    </div>
+  </section>
+
+  <section class="py-16 sm:py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl font-bold text-pallet-wood-dark mb-4">Need a quote or a pickup?</h2>
+      <p class="text-stone-600 mb-8">Tell us what you have on the dock, what you need delivered, or both. We'll get back to you the same business day.</p>
+      <div class="flex flex-wrap gap-3 justify-center">
+        <a
+          href={`tel:${SITE.phone}`}
+          class="inline-flex items-center gap-2 bg-pallet-wood text-pallet-cream px-6 py-3 rounded-md font-semibold hover:bg-pallet-wood-dark transition-colors"
+        >
+          Call {SITE.phoneDisplay}
+        </a>
+        <a
+          href={`mailto:${SITE.email}`}
+          class="inline-flex items-center gap-2 bg-white border-2 border-pallet-wood text-pallet-wood-dark px-6 py-3 rounded-md font-semibold hover:bg-pallet-cream-dark transition-colors"
+        >
+          Email us
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,100 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE } from "../data/site";
+
+const title = "Pallet Supply, Pickup & Recycling Services | Atlanta";
+const description =
+  "Pallet supply, scheduled pickup, recycling, and custom sizes across Atlanta. Grade A and B wooden pallets, 48×40 GMA standard plus built-to-spec.";
+
+const services = [
+  {
+    name: "Pallet supply",
+    summary: "Standard and custom wooden pallets, ready to ship.",
+    details: [
+      "48×40 GMA standard, the workhorse of US distribution",
+      "Block, stringer, and four-way entry configurations",
+      "Other common footprints: 42×42, 36×36, 48×48, custom",
+      "Heat-treated (ISPM-15) on request for export-bound loads",
+      "Volume pricing on standing-order accounts",
+    ],
+  },
+  {
+    name: "Pickup &amp; recycling",
+    summary: "We haul away your broken, surplus, or wrong-size pallets.",
+    details: [
+      "Scheduled weekly or on-call pickup",
+      "Single-pallet jobs to full-trailer loads",
+      "We sort, repair, and put serviceable pallets back into rotation",
+      "Pallets too far gone for repair go to mulch or biomass — never landfill",
+      "Same-week scheduling for most metro-area pickups",
+    ],
+  },
+  {
+    name: "Custom &amp; built-to-spec",
+    summary: "When standard sizes don't fit your product.",
+    details: [
+      "Extra-wide, extra-long, or short footprints for awkward loads",
+      "Heavy-duty builds for high-weight or stacked storage",
+      "One-way export pallets to spec",
+      "Short-run friendly — we'll quote a one-off if the geometry is reasonable",
+    ],
+  },
+  {
+    name: "Grade A &amp; Grade B inventory",
+    summary: "The right grade for the right job.",
+    details: [
+      "Grade A: minimal repairs, clean, export-friendly, food-safe candidates",
+      "Grade B: serviceable for general warehousing and one-way shipments",
+      "Both in stock most weeks; call to confirm volume",
+    ],
+  },
+];
+---
+
+<BaseLayout title={title} description={description} path="/services">
+  <section class="bg-pallet-cream py-16 sm:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <p class="text-sm font-semibold uppercase tracking-wider text-pallet-wood mb-3">Services</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-pallet-wood-dark mb-4">
+        What we supply &amp; what we haul.
+      </h1>
+      <p class="text-lg text-stone-700 max-w-2xl">
+        Two sides of the same operation: keeping pallets coming in when you need them, and hauling them off when you don't. Both run out of our Atlanta yard.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-12">
+      {services.map((service) => (
+        <article class="border-l-4 border-pallet-wood pl-6">
+          <h2 class="text-2xl font-bold text-pallet-wood-dark mb-2" set:html={service.name} />
+          <p class="text-stone-700 mb-4">{service.summary}</p>
+          <ul class="space-y-2 text-stone-600">
+            {service.details.map((detail) => (
+              <li class="flex gap-3">
+                <span class="text-pallet-wood mt-1.5" aria-hidden="true">▪</span>
+                <span>{detail}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-pallet-cream py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl font-bold text-pallet-wood-dark mb-4">Not sure what you need?</h2>
+      <p class="text-stone-700 mb-6 max-w-2xl mx-auto">
+        Call us and describe your load, your dock, or what's piling up out back. We'll tell you straight whether we're the right fit and roughly what it costs.
+      </p>
+      <a
+        href={`tel:${SITE.phone}`}
+        class="inline-flex items-center gap-2 bg-pallet-wood text-pallet-cream px-6 py-3 rounded-md font-semibold hover:bg-pallet-wood-dark transition-colors"
+      >
+        Call {SITE.phoneDisplay}
+      </a>
+    </div>
+  </section>
+</BaseLayout>

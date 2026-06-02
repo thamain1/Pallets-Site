@@ -1,0 +1,70 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE, SERVICE_AREA_CITIES } from "../data/site";
+
+const title = "Service Area | Atlanta Pallet Pickup & Delivery";
+const description =
+  "Our pallet supply and pickup routes cover Atlanta, the metro counties, and a 3-hour drive radius from our South River Industrial yard. See the city list.";
+---
+
+<BaseLayout title={title} description={description} path="/service-area">
+  <section class="bg-pallet-cream py-16 sm:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <p class="text-sm font-semibold uppercase tracking-wider text-pallet-wood mb-3">Service Area</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-pallet-wood-dark mb-4">
+        Where we pick up and deliver.
+      </h1>
+      <p class="text-lg text-stone-700 max-w-2xl">
+        We run out of a yard at {SITE.address.street}, {SITE.address.locality}, {SITE.address.region} and service a {SITE.serviceArea.radiusMiles}-mile radius — {SITE.serviceArea.description}.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 prose prose-stone">
+      <h2 class="text-2xl font-bold text-pallet-wood-dark mb-4">Atlanta metro and beyond</h2>
+
+      <p class="text-stone-700 leading-relaxed mb-4">
+        Our yard sits on the South River Industrial corridor in southwest Atlanta, a few minutes off I-75 and the airport. From that base we run pallet pickup and delivery routes across the entire ten-county Atlanta metropolitan area — Fulton, DeKalb, Cobb, Gwinnett, Clayton, Henry, Rockdale, Douglas, Cherokee, and Forsyth — plus the surrounding counties our trucks pass through on the way to longer hauls. We service warehouses, manufacturers, food and beverage distributors, retailers with backroom dock space, and construction-supply yards. Single pallets or full trailers, scheduled or one-off, residential addresses or industrial parks — if you can put a pallet on a curb or a dock, we can probably get to it.
+      </p>
+
+      <p class="text-stone-700 leading-relaxed mb-4">
+        Beyond the immediate metro, our routine routes extend roughly three hours' drive in every direction. That puts us in regular reach of Macon, Columbus, Athens, Gainesville, Rome, Cartersville, and the Dalton carpet corridor. We also work into the Chattanooga, Tennessee area on a recurring basis. If you're somewhere in that radius and you have a regular volume — say, a weekly pickup or a standing supply order — we can fold you into an existing route at a much better rate than spot-pricing a one-off run. If you're at the edge of our reach, ask anyway; we'll be honest about whether it makes sense and whether you'd be better off with a closer operator.
+      </p>
+
+      <p class="text-stone-700 leading-relaxed mb-4">
+        We handle Grade A and Grade B wooden pallets in standard 48×40 GMA size plus the common variants — block, stringer, four-way entry, and odd footprints when your product calls for it. Our recycling and reclamation process is straightforward: pickup runs come back to the yard, every pallet gets inspected and sorted, broken units go to the repair bench where we replace deck boards, stringers, and lead boards as needed, and anything beyond economical repair gets ground for biomass or mulch rather than dumped. The repaired pallets go right back into inventory — that's where the bulk of our Grade B supply comes from, and it's why we can keep prices competitive on remanufactured stock. Heat-treated ISPM-15 pallets for export are available on request; we keep stencil capacity in-house.
+      </p>
+
+      <p class="text-stone-700 leading-relaxed mb-8">
+        We aim for same-week scheduling on metro-area pickups and same-day or next-day on emergency deliveries when inventory permits. Standing accounts get priority on tight-deadline jobs. Service days are Monday through Friday, with limited Saturday morning service for accounts on a weekend dock schedule. Call the office or send an email with your address, what you have or what you need, and a rough quantity — we'll come back the same business day with a quote and a window.
+      </p>
+
+      <h2 class="text-2xl font-bold text-pallet-wood-dark mb-4 mt-12">Cities and towns we regularly serve</h2>
+      <p class="text-sm text-stone-600 mb-6">
+        Not exhaustive — if you're near any of these, you're in range. Call to confirm.
+      </p>
+
+      <ul class="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-1 text-sm text-stone-700 not-prose">
+        {SERVICE_AREA_CITIES.map((city) => (
+          <li class="py-1 border-b border-pallet-cream-dark/40">{city}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-pallet-cream py-16">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-bold text-pallet-wood-dark mb-4">Edge of our radius? Call anyway.</h2>
+      <p class="text-stone-700 mb-6">
+        We'd rather tell you up front whether we're a fit than pretend we cover ground we can't profitably service. If we're not the right call, we'll often know someone who is.
+      </p>
+      <a
+        href={`tel:${SITE.phone}`}
+        class="inline-flex items-center gap-2 bg-pallet-wood text-pallet-cream px-6 py-3 rounded-md font-semibold hover:bg-pallet-wood-dark transition-colors"
+      >
+        Call {SITE.phoneDisplay}
+      </a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,50 @@
+---
+import { SITE, NAV_LINKS } from "../data/site";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-pallet-wood-dark text-pallet-cream mt-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 grid gap-8 md:grid-cols-3">
+    <div>
+      <p class="text-lg font-semibold mb-2">{SITE.legalName}</p>
+      <p class="text-sm text-pallet-cream/80">{SITE.shortDescription}</p>
+      <address class="not-italic text-sm mt-4 text-pallet-cream/80 leading-relaxed">
+        {SITE.address.street}<br />
+        {SITE.address.locality}, {SITE.address.region} {SITE.address.postalCode}
+      </address>
+    </div>
+
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-wider text-pallet-cream/60 mb-3">Contact</p>
+      <ul class="text-sm space-y-2">
+        <li>
+          <a href={`tel:${SITE.phone}`} class="hover:underline">{SITE.phoneDisplay}</a>
+        </li>
+        <li>
+          <a href={`mailto:${SITE.email}`} class="hover:underline">{SITE.email}</a>
+        </li>
+        <li class="text-pallet-cream/80">{SITE.hours.weekdays}</li>
+        <li class="text-pallet-cream/80">{SITE.hours.weekend}</li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-wider text-pallet-cream/60 mb-3">Site</p>
+      <ul class="text-sm space-y-2">
+        {NAV_LINKS.map((link) => (
+          <li>
+            <a href={link.href} class="hover:underline">{link.label}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-pallet-cream/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 text-xs text-pallet-cream/60 flex flex-wrap items-center justify-between gap-2">
+      <span>© {year} {SITE.legalName}. All rights reserved.</span>
+      <span>Atlanta, GA · Pallet supply &amp; recycling</span>
+    </div>
+  </div>
+</footer>

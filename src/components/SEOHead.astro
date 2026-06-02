@@ -1,0 +1,41 @@
+---
+import { SITE } from "../data/site";
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  ogImage?: string;
+  noindex?: boolean;
+}
+
+const { title, description, path, ogImage, noindex = false } = Astro.props;
+
+const canonical = new URL(path, SITE.url).toString();
+const ogImageUrl = ogImage ? new URL(ogImage, SITE.url).toString() : undefined;
+
+if (title.length > 60) {
+  console.warn(`[SEO] Title is ${title.length} chars on ${path} — target is <=60.`);
+}
+if (description.length > 155) {
+  console.warn(`[SEO] Description is ${description.length} chars on ${path} — target is <=155.`);
+}
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+
+{noindex && <meta name="robots" content="noindex,nofollow" />}
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={SITE.name} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+{ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+{ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}

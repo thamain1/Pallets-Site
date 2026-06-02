@@ -1,0 +1,22 @@
+{
+  "name": "pallets-site",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Example marketing site for Pallets, Pallets, Pallets, LLC. Static Astro + Tailwind, SEO-first.",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "0.9.9",
+    "@astrojs/sitemap": "3.7.2",
+    "@tailwindcss/vite": "4.3.0",
+    "astro": "5.18.1",
+    "tailwindcss": "4.3.0",
+    "typescript": "6.0.3"
+  }
+}
