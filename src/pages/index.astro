@@ -203,10 +203,74 @@ const services = [
     </div>
   </section>
 
+  <!-- DELIVERY & LOGISTICS -->
+  <section class="bg-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid gap-12 lg:grid-cols-2 items-center">
+      <div class="lg:order-1">
+        <p class="text-accent-dark font-bold uppercase tracking-widest text-sm mb-3">Delivery &amp; logistics</p>
+        <h2 class="text-4xl sm:text-5xl font-bold text-pallet-wood-dark leading-tight mb-6">
+          Trucks rolling.<br />
+          <span class="text-accent-dark">Routes you can count on.</span>
+        </h2>
+        <p class="text-stone-700 text-lg leading-relaxed mb-8">
+          We operate our own fleet out of the Atlanta yard. Flatbeds for full-trailer hauls, smaller trucks with liftgates for tight docks and walk-up pickups. If we're already running a route through your area, we can usually fold you in without a route premium.
+        </p>
+
+        <ul class="space-y-3 mb-8">
+          <li class="flex gap-3 text-stone-700">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-1" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span><strong class="text-pallet-wood-dark">Flatbeds &amp; box trucks</strong> — full-trailer loads down to single-pallet jobs</span>
+          </li>
+          <li class="flex gap-3 text-stone-700">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-1" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span><strong class="text-pallet-wood-dark">Liftgate-equipped trucks</strong> for residential or no-dock locations</span>
+          </li>
+          <li class="flex gap-3 text-stone-700">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-1" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span><strong class="text-pallet-wood-dark">Same-week scheduling</strong> across metro Atlanta; standing accounts get priority</span>
+          </li>
+          <li class="flex gap-3 text-stone-700">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-1" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span><strong class="text-pallet-wood-dark">Drivers who know the yard</strong> — same crew loading and delivering</span>
+          </li>
+        </ul>
+
+        <a
+          href="/service-area"
+          class="inline-flex items-center gap-2 text-pallet-wood-dark font-bold uppercase tracking-wide text-sm hover:text-accent-dark transition-colors"
+        >
+          See where we run →
+        </a>
+      </div>
+
+      <div class="lg:order-2 relative">
+        <div class="relative aspect-[16/9] rounded-lg overflow-hidden shadow-2xl shadow-pallet-wood-dark/30">
+          <img
+            src="/images/semiwithpallets.jpg"
+            alt="A white Freightliner flatbed semi truck loaded with stacked wooden pallets, parked at the Pallets Pallets Pallets yard ready for delivery"
+            class="absolute inset-0 w-full h-full object-cover"
+            loading="lazy"
+          />
+          <div class="absolute top-4 left-4 bg-accent text-[#18120b] px-3 py-1 rounded-sm font-bold text-xs uppercase tracking-widest">
+            Loaded &amp; rolling
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- MADE IN USA -->
   <section class="bg-[#18120b] text-pallet-cream py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 grid gap-12 lg:grid-cols-2 items-center">
-      <div class="order-2 lg:order-1">
+      <div class="lg:order-2">
         <p class="text-accent font-bold uppercase tracking-widest text-sm mb-3">Built local</p>
         <h2 class="text-4xl sm:text-5xl font-bold leading-tight mb-6">
           Made in the USA.<br />
@@ -233,7 +297,7 @@ const services = [
           </a>
         </div>
       </div>
-      <div class="order-1 lg:order-2 relative">
+      <div class="lg:order-1 relative">
         <div class="aspect-square rounded-lg bg-pallet-cream/5 border border-pallet-cream/10 p-8 flex items-center justify-center">
           <img
             src="/images/madeinusa.jpg"
