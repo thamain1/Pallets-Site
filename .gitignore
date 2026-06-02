@@ -1,0 +1,19 @@
+# Commercial / contractual / client-PII docs stay local.
+# Mirrors the policy on thamain1/Pallet-Lead-Agents.
+docs/
+
+# Editor / OS noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Node / build artifacts (placeholders for when the site itself lands)
+node_modules/
+dist/
+build/
+.next/
+.cache/
+.env
+.env.*
+!.env.example
