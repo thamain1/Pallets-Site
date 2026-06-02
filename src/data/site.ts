@@ -34,6 +34,20 @@ export const SITE = {
   },
 } as const;
 
+export const TRUST_BADGES = [
+  "Made in USA",
+  "Family-run",
+  "Atlanta-based",
+  "Same-week pickup",
+] as const;
+
+export const STATS = [
+  { value: "150", suffix: " mi", label: "Service radius from Atlanta" },
+  { value: "48×40", suffix: "", label: "GMA standard, in stock" },
+  { value: "A + B", suffix: "", label: "Grades available weekly" },
+  { value: "Same-week", suffix: "", label: "Metro pickup scheduling" },
+] as const;
+
 export const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },

@@ -8,10 +8,13 @@ const description =
 
 const services = [
   {
+    id: "supply",
     name: "Pallet supply",
     summary: "Standard and custom wooden pallets, ready to ship.",
+    image: "/images/cleanpallets.jpg",
+    imageAlt: "Stacks of clean newly-manufactured wooden pallets in a warehouse",
     details: [
-      "48×40 GMA standard, the workhorse of US distribution",
+      "48×40 GMA standard — the workhorse of US distribution",
       "Block, stringer, and four-way entry configurations",
       "Other common footprints: 42×42, 36×36, 48×48, custom",
       "Heat-treated (ISPM-15) on request for export-bound loads",
@@ -19,8 +22,11 @@ const services = [
     ],
   },
   {
-    name: "Pickup &amp; recycling",
+    id: "pickup",
+    name: "Pickup & recycling",
     summary: "We haul away your broken, surplus, or wrong-size pallets.",
+    image: "/images/pallets.jpg",
+    imageAlt: "A tall stack of used wooden pallets staged for pickup at a loading dock",
     details: [
       "Scheduled weekly or on-call pickup",
       "Single-pallet jobs to full-trailer loads",
@@ -30,8 +36,11 @@ const services = [
     ],
   },
   {
-    name: "Custom &amp; built-to-spec",
+    id: "custom",
+    name: "Custom & built-to-spec",
     summary: "When standard sizes don't fit your product.",
+    image: "/images/typesofpallets.jpg",
+    imageAlt: "Diagram showing nine different wooden pallet configurations including two-way entry, four-way entry, and Euro pallet sizes",
     details: [
       "Extra-wide, extra-long, or short footprints for awkward loads",
       "Heavy-duty builds for high-weight or stacked storage",
@@ -40,8 +49,11 @@ const services = [
     ],
   },
   {
-    name: "Grade A &amp; Grade B inventory",
+    id: "grades",
+    name: "Grade A & Grade B inventory",
     summary: "The right grade for the right job.",
+    image: "/images/stackspallets.jpg",
+    imageAlt: "Large outdoor stacks of recycled wooden pallets sorted by grade",
     details: [
       "Grade A: minimal repairs, clean, export-friendly, food-safe candidates",
       "Grade B: serviceable for general warehousing and one-way shipments",
@@ -52,46 +64,90 @@ const services = [
 ---
 
 <BaseLayout title={title} description={description} path="/services">
-  <section class="bg-pallet-cream py-16 sm:py-20">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
-      <p class="text-sm font-semibold uppercase tracking-wider text-pallet-wood mb-3">Services</p>
-      <h1 class="text-4xl sm:text-5xl font-bold text-pallet-wood-dark mb-4">
-        What we supply &amp; what we haul.
+  <!-- HERO STRIP -->
+  <section class="relative min-h-[44vh] flex items-center text-pallet-cream overflow-hidden">
+    <img
+      src="/images/cleanpallets.jpg"
+      alt=""
+      class="absolute inset-0 w-full h-full object-cover"
+      loading="eager"
+      fetchpriority="high"
+      aria-hidden="true"
+    />
+    <div class="absolute inset-0 hero-overlay"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-20 w-full">
+      <p class="text-accent font-bold uppercase tracking-widest text-sm mb-3">Services</p>
+      <h1 class="text-5xl sm:text-6xl font-bold leading-[1.05] tracking-tight max-w-3xl">
+        What we supply.<br />
+        What we haul.
       </h1>
-      <p class="text-lg text-stone-700 max-w-2xl">
+      <p class="mt-6 text-lg sm:text-xl text-pallet-cream/90 leading-relaxed max-w-2xl">
         Two sides of the same operation: keeping pallets coming in when you need them, and hauling them off when you don't. Both run out of our Atlanta yard.
       </p>
     </div>
   </section>
 
-  <section class="py-16 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-12">
-      {services.map((service) => (
-        <article class="border-l-4 border-pallet-wood pl-6">
-          <h2 class="text-2xl font-bold text-pallet-wood-dark mb-2" set:html={service.name} />
-          <p class="text-stone-700 mb-4">{service.summary}</p>
-          <ul class="space-y-2 text-stone-600">
-            {service.details.map((detail) => (
-              <li class="flex gap-3">
-                <span class="text-pallet-wood mt-1.5" aria-hidden="true">▪</span>
-                <span>{detail}</span>
-              </li>
-            ))}
-          </ul>
+  <!-- SERVICE SECTIONS — alternating photo + text -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-20">
+      {services.map((service, i) => (
+        <article
+          id={service.id}
+          class:list={[
+            "grid gap-10 lg:grid-cols-2 items-center",
+          ]}
+        >
+          <div class:list={[i % 2 === 1 ? "lg:order-2" : ""]}>
+            <div class="relative aspect-[4/3] rounded-lg overflow-hidden shadow-xl shadow-pallet-wood-dark/20">
+              <img
+                src={service.image}
+                alt={service.imageAlt}
+                class="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <div class={i % 2 === 1 ? "lg:order-1" : ""}>
+            <p class="text-accent-dark font-bold uppercase tracking-widest text-sm mb-3">0{i + 1}</p>
+            <h2 class="text-3xl sm:text-4xl font-bold text-pallet-wood-dark leading-tight mb-4">{service.name}</h2>
+            <p class="text-lg text-stone-700 mb-6">{service.summary}</p>
+            <ul class="space-y-3">
+              {service.details.map((detail) => (
+                <li class="flex gap-3 text-stone-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-1" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                  <span>{detail}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </article>
       ))}
     </div>
   </section>
 
-  <section class="bg-pallet-cream py-16">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-      <h2 class="text-3xl font-bold text-pallet-wood-dark mb-4">Not sure what you need?</h2>
-      <p class="text-stone-700 mb-6 max-w-2xl mx-auto">
+  <!-- CTA -->
+  <section class="relative py-20 overflow-hidden">
+    <img
+      src="/images/stackspallets.jpg"
+      alt=""
+      class="absolute inset-0 w-full h-full object-cover"
+      loading="lazy"
+      aria-hidden="true"
+    />
+    <div class="absolute inset-0 bg-[#18120b]/85"></div>
+
+    <div class="relative max-w-3xl mx-auto px-4 sm:px-6 text-center text-pallet-cream">
+      <h2 class="text-4xl sm:text-5xl font-bold mb-6 leading-tight">Not sure what you need?</h2>
+      <p class="text-pallet-cream/90 text-lg mb-10 max-w-2xl mx-auto">
         Call us and describe your load, your dock, or what's piling up out back. We'll tell you straight whether we're the right fit and roughly what it costs.
       </p>
       <a
         href={`tel:${SITE.phone}`}
-        class="inline-flex items-center gap-2 bg-pallet-wood text-pallet-cream px-6 py-3 rounded-md font-semibold hover:bg-pallet-wood-dark transition-colors"
+        class="inline-flex items-center gap-2 bg-accent hover:bg-accent-light text-[#18120b] px-7 py-4 rounded-md font-bold text-lg uppercase tracking-wide transition-colors"
       >
         Call {SITE.phoneDisplay}
       </a>

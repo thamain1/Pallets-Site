@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE } from "../data/site";
 
 const title = "About Us | Pallets Pallets Pallets — Atlanta";
 const description =
@@ -7,20 +8,33 @@ const description =
 ---
 
 <BaseLayout title={title} description={description} path="/about">
-  <section class="bg-pallet-cream py-16 sm:py-20">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6">
-      <p class="text-sm font-semibold uppercase tracking-wider text-pallet-wood mb-3">About</p>
-      <h1 class="text-4xl sm:text-5xl font-bold text-pallet-wood-dark mb-4">
-        Family-run, owner-on-the-yard.
+  <!-- HERO STRIP -->
+  <section class="relative min-h-[44vh] flex items-center text-pallet-cream overflow-hidden">
+    <img
+      src="/images/pallets.jpg"
+      alt=""
+      class="absolute inset-0 w-full h-full object-cover"
+      loading="eager"
+      fetchpriority="high"
+      aria-hidden="true"
+    />
+    <div class="absolute inset-0 hero-overlay"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-20 w-full">
+      <p class="text-accent font-bold uppercase tracking-widest text-sm mb-3">About</p>
+      <h1 class="text-5xl sm:text-6xl font-bold leading-[1.05] tracking-tight max-w-3xl">
+        Family-run.<br />
+        Owner-on-the-yard.
       </h1>
-      <p class="text-lg text-stone-700">
-        Pallets, Pallets, Pallets is an Atlanta-based wooden-pallet operation run by Owner Partners who actually answer the phone. When you call, you get someone with skin in the game — not a call center.
+      <p class="mt-6 text-lg sm:text-xl text-pallet-cream/90 leading-relaxed max-w-2xl">
+        When you call, you get someone with skin in the game — not a call center.
       </p>
     </div>
   </section>
 
-  <section class="py-16 bg-white">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 space-y-6 text-stone-700 leading-relaxed">
+  <!-- STORY -->
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 space-y-6 text-stone-700 text-lg leading-relaxed">
       <p>
         We started with a simple read on the Atlanta market: warehouses pay too much for new pallets when good remanufactured units are available, and they spend too much manpower on broken pallets piling up out back. Both problems get solved when one operator handles both ends — and that's the operation we built.
       </p>
@@ -32,39 +46,53 @@ const description =
       <p>
         We're not the biggest operator in town and we don't try to be. We're small enough that the Owner Partners know every account, big enough to handle full-trailer volume, and stubborn enough about quality that our repeat-customer rate is the metric we actually care about.
       </p>
-
-      <h2 class="text-2xl font-bold text-pallet-wood-dark mt-12 mb-4">How we work</h2>
-
-      <ul class="space-y-3">
-        <li class="flex gap-3">
-          <span class="text-pallet-wood font-bold mt-1" aria-hidden="true">1.</span>
-          <span><strong>Call or email.</strong> Tell us what you have on the dock, what you need delivered, or both. Rough quantities are fine — we'll dial it in.</span>
-        </li>
-        <li class="flex gap-3">
-          <span class="text-pallet-wood font-bold mt-1" aria-hidden="true">2.</span>
-          <span><strong>Quote &amp; schedule.</strong> Same-business-day response with a price and a window.</span>
-        </li>
-        <li class="flex gap-3">
-          <span class="text-pallet-wood font-bold mt-1" aria-hidden="true">3.</span>
-          <span><strong>We show up.</strong> Truck, driver, hand pallet jack as needed. We work clean and move quick.</span>
-        </li>
-        <li class="flex gap-3">
-          <span class="text-pallet-wood font-bold mt-1" aria-hidden="true">4.</span>
-          <span><strong>Standing accounts get easier over time.</strong> Once we know your dock and your rhythm, scheduling drops to a text message.</span>
-        </li>
-      </ul>
     </div>
   </section>
 
-  <section class="bg-pallet-cream py-16">
+  <!-- HOW WE WORK -->
+  <section class="bg-pallet-cream py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-14">
+        <p class="text-accent-dark font-bold uppercase tracking-widest text-sm mb-3">Process</p>
+        <h2 class="text-4xl font-bold text-pallet-wood-dark leading-tight">How we work.</h2>
+      </div>
+
+      <ol class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {[
+          { n: "01", t: "Call or email", b: "Tell us what you have on the dock, what you need delivered, or both. Rough quantities are fine — we'll dial it in." },
+          { n: "02", t: "Quote & schedule", b: "Same-business-day response with a price and a window." },
+          { n: "03", t: "We show up", b: "Truck, driver, hand pallet jack as needed. We work clean and move quick." },
+          { n: "04", t: "Standing accounts", b: "Once we know your dock and your rhythm, scheduling drops to a text message." },
+        ].map((step) => (
+          <li class="bg-white border border-pallet-cream-dark rounded-lg p-6 relative hover:border-accent transition-colors">
+            <div class="font-display text-4xl font-bold text-accent leading-none mb-3">{step.n}</div>
+            <h3 class="font-display text-lg font-semibold text-pallet-wood-dark uppercase tracking-wide mb-2">{step.t}</h3>
+            <p class="text-stone-600 text-sm leading-relaxed">{step.b}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-[#18120b] text-pallet-cream py-20">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-      <h2 class="text-2xl font-bold text-pallet-wood-dark mb-4">Ready when you are.</h2>
-      <a
-        href="/contact"
-        class="inline-flex items-center gap-2 bg-pallet-wood text-pallet-cream px-6 py-3 rounded-md font-semibold hover:bg-pallet-wood-dark transition-colors"
-      >
-        Get in touch
-      </a>
+      <h2 class="text-4xl font-bold mb-6 leading-tight">Ready when you are.</h2>
+      <p class="text-pallet-cream/80 text-lg mb-10">Quote, pickup, or both — same business day.</p>
+      <div class="flex flex-wrap gap-3 justify-center">
+        <a
+          href="/contact"
+          class="inline-flex items-center gap-2 bg-accent hover:bg-accent-light text-[#18120b] px-7 py-4 rounded-md font-bold text-lg uppercase tracking-wide transition-colors"
+        >
+          Get in touch
+        </a>
+        <a
+          href={`tel:${SITE.phone}`}
+          class="inline-flex items-center gap-2 border-2 border-pallet-cream/40 text-pallet-cream px-7 py-4 rounded-md font-bold text-lg uppercase tracking-wide hover:border-pallet-cream hover:bg-pallet-cream/10 transition-colors"
+        >
+          {SITE.phoneDisplay}
+        </a>
+      </div>
     </div>
   </section>
 </BaseLayout>

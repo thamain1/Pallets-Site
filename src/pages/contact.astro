@@ -8,73 +8,114 @@ const description =
 ---
 
 <BaseLayout title={title} description={description} path="/contact">
-  <section class="bg-pallet-cream py-16 sm:py-20">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6">
-      <p class="text-sm font-semibold uppercase tracking-wider text-pallet-wood mb-3">Contact</p>
-      <h1 class="text-4xl sm:text-5xl font-bold text-pallet-wood-dark mb-4">
-        Call, email, or stop by the yard.
+  <!-- HERO STRIP -->
+  <section class="relative min-h-[44vh] flex items-center text-pallet-cream overflow-hidden">
+    <img
+      src="/images/cleanpallets.jpg"
+      alt=""
+      class="absolute inset-0 w-full h-full object-cover"
+      loading="eager"
+      fetchpriority="high"
+      aria-hidden="true"
+    />
+    <div class="absolute inset-0 hero-overlay"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-20 w-full">
+      <p class="text-accent font-bold uppercase tracking-widest text-sm mb-3">Contact</p>
+      <h1 class="text-5xl sm:text-6xl font-bold leading-[1.05] tracking-tight max-w-3xl">
+        Call. Email.<br />
+        Stop by the yard.
       </h1>
-      <p class="text-lg text-stone-700">
+      <p class="mt-6 text-lg sm:text-xl text-pallet-cream/90 leading-relaxed max-w-2xl">
         Quotes and pickup scheduling same business day. The fastest way to reach us is the phone.
       </p>
     </div>
   </section>
 
-  <section class="py-16 bg-white">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 grid gap-8 sm:grid-cols-2">
-      <div class="border border-pallet-cream-dark rounded-lg p-6 bg-white">
-        <h2 class="text-lg font-semibold text-pallet-wood-dark mb-3">Phone</h2>
-        <a href={`tel:${SITE.phone}`} class="text-2xl font-bold text-pallet-wood-dark hover:underline">
-          {SITE.phoneDisplay}
-        </a>
+  <!-- CONTACT GRID -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 grid gap-6 md:grid-cols-2">
+      <a
+        href={`tel:${SITE.phone}`}
+        class="group bg-pallet-cream border-l-4 border-accent rounded-r-lg p-8 hover:bg-pallet-cream-dark transition-colors"
+      >
+        <div class="flex items-center gap-3 mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <h2 class="font-display text-lg font-semibold uppercase tracking-wider text-pallet-wood-dark">Phone</h2>
+        </div>
+        <p class="font-display text-3xl font-bold text-pallet-wood-dark group-hover:underline">{SITE.phoneDisplay}</p>
         <p class="text-sm text-stone-600 mt-3">Best for quotes, same-day pickups, and standing accounts.</p>
-      </div>
+      </a>
 
-      <div class="border border-pallet-cream-dark rounded-lg p-6 bg-white">
-        <h2 class="text-lg font-semibold text-pallet-wood-dark mb-3">Email</h2>
-        <a href={`mailto:${SITE.email}`} class="text-lg font-bold text-pallet-wood-dark hover:underline break-words">
-          {SITE.email}
-        </a>
-        <p class="text-sm text-stone-600 mt-3">Best for sending photos of what you have, attached documents, or specs.</p>
-      </div>
+      <a
+        href={`mailto:${SITE.email}`}
+        class="group bg-pallet-cream border-l-4 border-accent rounded-r-lg p-8 hover:bg-pallet-cream-dark transition-colors"
+      >
+        <div class="flex items-center gap-3 mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <h2 class="font-display text-lg font-semibold uppercase tracking-wider text-pallet-wood-dark">Email</h2>
+        </div>
+        <p class="text-lg font-bold text-pallet-wood-dark group-hover:underline break-words">{SITE.email}</p>
+        <p class="text-sm text-stone-600 mt-3">Best for sending photos, attached documents, or specs.</p>
+      </a>
 
-      <div class="border border-pallet-cream-dark rounded-lg p-6 bg-white sm:col-span-2">
-        <h2 class="text-lg font-semibold text-pallet-wood-dark mb-3">Yard &amp; office</h2>
-        <address class="not-italic text-stone-700 leading-relaxed">
-          <strong>{SITE.legalName}</strong><br />
-          {SITE.address.street}<br />
-          {SITE.address.locality}, {SITE.address.region} {SITE.address.postalCode}
-        </address>
-        <div class="mt-4 text-sm text-stone-600 space-y-1">
-          <p><strong class="text-pallet-wood-dark">Hours:</strong></p>
-          <p>{SITE.hours.weekdays}</p>
-          <p>{SITE.hours.weekend}</p>
+      <div class="md:col-span-2 bg-[#18120b] text-pallet-cream rounded-lg p-8">
+        <div class="grid gap-8 sm:grid-cols-2">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <h2 class="font-display text-lg font-semibold uppercase tracking-wider">Yard &amp; office</h2>
+            </div>
+            <address class="not-italic text-pallet-cream/90 leading-relaxed">
+              <strong class="text-pallet-cream">{SITE.legalName}</strong><br />
+              {SITE.address.street}<br />
+              {SITE.address.locality}, {SITE.address.region} {SITE.address.postalCode}
+            </address>
+          </div>
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+              <h2 class="font-display text-lg font-semibold uppercase tracking-wider">Hours</h2>
+            </div>
+            <p class="text-pallet-cream/90">{SITE.hours.weekdays}</p>
+            <p class="text-pallet-cream/90">{SITE.hours.weekend}</p>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 mt-12">
-      <div class="bg-pallet-cream rounded-lg p-6 border border-pallet-cream-dark">
-        <h2 class="text-lg font-semibold text-pallet-wood-dark mb-3">When you call or email, tell us:</h2>
-        <ul class="space-y-2 text-stone-700">
-          <li class="flex gap-3">
-            <span class="text-pallet-wood mt-1.5" aria-hidden="true">▪</span>
-            <span>Your address (or a rough idea of where you are)</span>
+  <!-- WHAT TO TELL US -->
+  <section class="bg-pallet-cream py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl sm:text-4xl font-bold text-pallet-wood-dark mb-8 leading-tight text-center">When you call or email, tell us:</h2>
+
+      <ul class="space-y-4">
+        {[
+          "Your address (or a rough idea of where you are)",
+          "What you have (pickup) or what you need (supply) — rough count is fine",
+          "When you need it — today, this week, recurring",
+          "Dock access notes (lift gate? back-in only? gated yard?)",
+        ].map((item) => (
+          <li class="flex gap-4 bg-white border border-pallet-cream-dark rounded-lg p-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span class="text-stone-700">{item}</span>
           </li>
-          <li class="flex gap-3">
-            <span class="text-pallet-wood mt-1.5" aria-hidden="true">▪</span>
-            <span>What you have (pickup) or what you need (supply) — rough count is fine</span>
-          </li>
-          <li class="flex gap-3">
-            <span class="text-pallet-wood mt-1.5" aria-hidden="true">▪</span>
-            <span>When you need it — today, this week, recurring</span>
-          </li>
-          <li class="flex gap-3">
-            <span class="text-pallet-wood mt-1.5" aria-hidden="true">▪</span>
-            <span>Dock access notes (lift gate? back-in only? gated yard?)</span>
-          </li>
-        </ul>
-      </div>
+        ))}
+      </ul>
     </div>
   </section>
 </BaseLayout>
