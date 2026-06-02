@@ -1,0 +1,73 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { SITE } from "../../data/site";
+
+const title = "Thanks — We'll Be In Touch | Pallets Pallets Pallets";
+const description =
+  "Your inquiry was received. We'll get back to you the same business day with a quote and a window.";
+---
+
+<BaseLayout title={title} description={description} path="/contact/thanks" noindex={true}>
+  <section class="relative min-h-[80vh] flex items-center text-pallet-cream overflow-hidden">
+    <img
+      src="/images/cleanpallets.jpg"
+      alt=""
+      class="absolute inset-0 w-full h-full object-cover"
+      loading="eager"
+      fetchpriority="high"
+      aria-hidden="true"
+    />
+    <div class="absolute inset-0 hero-overlay"></div>
+
+    <div class="relative max-w-3xl mx-auto px-4 sm:px-6 py-20 w-full text-center">
+      <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-accent text-[#18120b] mb-6 shadow-2xl shadow-black/40">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
+
+      <p class="text-accent font-bold uppercase tracking-widest text-sm mb-3">Inquiry received</p>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6">
+        Thanks. We're on it.
+      </h1>
+      <p class="text-lg sm:text-xl text-pallet-cream/90 leading-relaxed max-w-xl mx-auto mb-10">
+        We'll get back to you the same business day with a quote and a window. If it's urgent, the phone is faster.
+      </p>
+
+      <div class="flex flex-wrap gap-3 justify-center">
+        <a
+          href={`tel:${SITE.phone}`}
+          class="inline-flex items-center gap-2 bg-accent hover:bg-accent-light text-[#18120b] px-7 py-4 rounded-md font-bold text-lg uppercase tracking-wide transition-colors shadow-xl shadow-black/30"
+        >
+          Call {SITE.phoneDisplay}
+        </a>
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 border-2 border-pallet-cream text-pallet-cream px-7 py-4 rounded-md font-bold text-lg uppercase tracking-wide hover:bg-pallet-cream hover:text-[#18120b] transition-colors"
+        >
+          Back to home
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-pallet-cream py-16">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-bold text-pallet-wood-dark mb-4">What happens next</h2>
+      <ol class="space-y-3 text-left max-w-md mx-auto">
+        <li class="flex gap-3 text-stone-700">
+          <span class="flex-shrink-0 w-7 h-7 rounded-full bg-accent text-[#18120b] font-display font-bold flex items-center justify-center text-sm">1</span>
+          <span>We read your details and confirm we can help.</span>
+        </li>
+        <li class="flex gap-3 text-stone-700">
+          <span class="flex-shrink-0 w-7 h-7 rounded-full bg-accent text-[#18120b] font-display font-bold flex items-center justify-center text-sm">2</span>
+          <span>You hear back same business day with a price and a window.</span>
+        </li>
+        <li class="flex gap-3 text-stone-700">
+          <span class="flex-shrink-0 w-7 h-7 rounded-full bg-accent text-[#18120b] font-display font-bold flex items-center justify-center text-sm">3</span>
+          <span>Truck and crew show up. Job done.</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+</BaseLayout>
